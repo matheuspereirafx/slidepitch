@@ -1,0 +1,72 @@
+
+  :root {
+            --laranja-vibrante: #FF6B35;
+            --azul-petroleo: #1A535C;
+            --off-white: #F7F7F7;
+            --verde-esmeralda: #4ECDC4;
+        }
+
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            overflow: hidden; background-color: #111;
+            display: flex; justify-content: center; align-items: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Container Rígido 1280x720 - Dimensão de Slide Padrão */
+        #viewport {
+            width: 1280px; height: 720px;
+            position: relative; transform-origin: center center;
+            background: var(--off-white); overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+
+        .slide {
+            position: absolute; top: 0; left: 0;
+            width: 1280px; height: 720px;
+            display: none; opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .slide.active { display: block; opacity: 1; }
+
+        /* Botões laterais discretos */
+        .nav-button {
+            position: fixed; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.05); color: white;
+            border: none; padding: 25px 15px; cursor: pointer;
+            z-index: 1000; transition: 0.3s; border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+        .nav-button:hover { background: var(--laranja-vibrante); }
+        .prev { left: 5px; } .next { right: 5px; }
+
+        /* Estilização Interna Otimizada */
+        .mockup-screen {
+            width: 280px; height: 540px;
+            background-color: var(--off-white); border-radius: 35px;
+            border: 10px solid #333; overflow: hidden; position: relative;
+        }
+        .app-header { background-color: var(--azul-petroleo); padding: 12px; height: 110px; color: white; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; }
+        .btn-voz { background-color: var(--verde-esmeralda); color: white; width: 45px; height: 45px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(78, 205, 196, 0.4); }
+
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+        /* Ajuste de cartões para evitar overflow vertical */
+        .problem-card {
+            max-height: 280px;
+        }
+
+        /* Efeito de Flutuação Suave */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(-2deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(-2deg);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
